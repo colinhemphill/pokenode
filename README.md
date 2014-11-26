@@ -8,10 +8,6 @@ Install via npm:
 
     npm install --save pokenode
 
-Then ``require`` wherever you need it.
-
-    var pokeAPI = require('pokenode');
-
 ## API Reference
 
 Using this wrapper will invoke the same restrictions as hitting the API with REST calls. So there is no authentication, but you are limited to 300 requests per resource per IP address.
@@ -30,15 +26,15 @@ We follow the same naming conventions as the official API, so check the [documen
 
 Available functions are ``pokedex``, ``pokemon``, ``type``, ``move``, ``ability``, ``pokemon``, ``egg``, ``description``, ``sprite``, and ``game``. The function ``pokedex`` takes no parameters, just a callback function.
 
-You do not have to know the index of a type to get the resource. You can call:
+You do not have to know the index of a type to get the resource. Instead, you may call:
 
-    pokeAPI.type('fire', function(err, data) {...
+    pokeAPI.type('fire', function(err, data) { ...
 
 To get the fire object.
 
 ## Something else?
 
-The Pokéapi is currently at version 1, so this wrapper defaults to that. In case that ever changes, you can set the version number with:
+The Pokéapi is currently at version 1. In case that ever changes, you can set the version number with:
 
     var pokeAPI = require('pokenode');
     pokeAPI.version(2);

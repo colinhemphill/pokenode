@@ -1,0 +1,76 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . C:\Users\Colin\AppData\Roaming\npm-cache\3a52ce78-.lock
+10 verbose tar pack [ 'C:\\Users\\Colin\\AppData\\Roaming\\npm-cache\\pokenode\\0.1.0\\package.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package.tgz
+12 verbose folder .
+13 info prepublish pokenode@0.1.0
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. C:\Users\Colin\AppData\Roaming\npm-cache\1f1177db-tar.lock
+16 silly lockFile 864d2135-cache-pokenode-0-1-0-package-tgz tar://C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package.tgz
+17 verbose lock tar://C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package.tgz C:\Users\Colin\AppData\Roaming\npm-cache\864d2135-cache-pokenode-0-1-0-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 864d2135-cache-pokenode-0-1-0-package-tgz tar://C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package.tgz
+21 silly lockFile 864d2135-cache-pokenode-0-1-0-package-tgz tar://C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package.tgz
+22 silly lockFile 0f68c874-npm-cache-pokenode-0-1-0-package C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package
+23 verbose lock C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package C:\Users\Colin\AppData\Roaming\npm-cache\0f68c874-npm-cache-pokenode-0-1-0-package.lock
+24 silly lockFile 0f68c874-npm-cache-pokenode-0-1-0-package C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package
+25 silly lockFile 0f68c874-npm-cache-pokenode-0-1-0-package C:\Users\Colin\AppData\Roaming\npm-cache\pokenode\0.1.0\package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'pokenode',
+28 silly publish   version: '0.1.0',
+28 silly publish   description: 'NodeJS wrapper for the Pokemon API.',
+28 silly publish   main: 'pokenode.js',
+28 silly publish   scripts: { test: 'grunt test' },
+28 silly publish   repository: { type: 'git', url: 'git://github.com/hemphillcc/pokenode.git' },
+28 silly publish   keywords: [ 'pokemon', 'api', 'wrapper' ],
+28 silly publish   author: { name: 'Bomb Shelter Software' },
+28 silly publish   license: 'MIT',
+28 silly publish   dependencies: { request: '^2.48.0' },
+28 silly publish   devDependencies:
+28 silly publish    { async: '^0.9.0',
+28 silly publish      chai: '^1.10.0',
+28 silly publish      'chai-as-promised': '^4.1.1',
+28 silly publish      grunt: '^0.4.5',
+28 silly publish      'grunt-simple-mocha': '^0.4.0',
+28 silly publish      q: '^1.1.2' },
+28 silly publish   readme: '[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]\r\n\r\n# Pokénode\r\n\r\nA NodeJS wrapper for the [Pokéapi](http://pokeapi.co/ "Pokéapi").\r\n\r\nInstall via npm:\r\n\r\n    npm install --save pokenode\r\n\r\nThen ``require`` wherever you need it.\r\n\r\n    var pokeAPI = require(\'pokenode\');\r\n\r\n## API Reference\r\n\r\nUsing this wrapper will invoke the same restrictions as hitting the API with REST calls. So there is no authentication, but you are limited to 300 requests per resource per IP address.\r\n\r\nWe follow the same naming conventions as the official API, so check the [documentation](http://pokeapi.co/docs/ "Pokéapi Documentation") for all available features. Here\'s a quick example. To get Bulbasaur, the equivalent of a call to ``GET http://pokeapi.co/api/v1/pokemon/1/``, do the following:\r\n\r\n    var pokeAPI = require(\'pokenode\');\r\n\r\n    pokeAPI.pokemon(1, function(err, data) {\r\n        if(err) {\r\n            // handle err\r\n        } else {\r\n            // have some data about Bulbasaur\r\n        }\r\n    });\r\n\r\nAvailable functions are ``pokedex``, ``pokemon``, ``type``, ``move``, ``ability``, ``pokemon``, ``egg``, ``description``, ``sprite``, and ``game``. The function ``pokedex`` takes no parameters, just a callback function.\r\n\r\nYou do not have to know the index of a type to get the resource. You can call:\r\n\r\n    pokeAPI.type(\'fire\', function(err, data) {...\r\n\r\nTo get the fire object.\r\n\r\n## Something else?\r\n\r\nThe Pokéapi is currently at version 1, so this wrapper defaults to that. In case that ever changes, you can set the version number with:\r\n\r\n    var pokeAPI = require(\'pokenode\');\r\n    pokeAPI.version(2);\r\n\r\n## Version History\r\n\r\n* 0.1.0 Initial release\r\n\r\n[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square\r\n[license-url]: https://github.com/hemphillcc/cagination/blob/master/LICENSE\r\n\r\n[npm-version-image]: http://img.shields.io/npm/v/pokenode.svg?style=flat-square\r\n[npm-downloads-image]: http://img.shields.io/npm/dm/pokenode.svg?style=flat-square\r\n[npm-url]: https://npmjs.org/package/pokenode\r\n\r\n[travis-image]: http://img.shields.io/travis/hemphillcc/pokenode.svg?style=flat-square\r\n[travis-url]: http://travis-ci.org/hemphillcc/pokenode',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: 'c9d4e30c9eb7dba5bb522b0548501236a4f8ed80',
+28 silly publish   bugs: { url: 'https://github.com/hemphillcc/pokenode/issues' },
+28 silly publish   homepage: 'https://github.com/hemphillcc/pokenode',
+28 silly publish   _id: 'pokenode@0.1.0',
+28 silly publish   _shasum: '37c2a5c7f82628fd0696367513bf62de11bf99f8',
+28 silly publish   _from: '.' }
+29 error need auth auth and email required for publishing
+29 error need auth You need to authorize this machine using `npm adduser`
+30 error System Windows_NT 6.2.9200
+31 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+32 error cwd c:\Users\Colin\Documents\Coding\pokenode
+33 error node -v v0.10.32
+34 error npm -v 1.4.28
+35 error code ENEEDAUTH
+36 verbose exit [ 1, true ]
