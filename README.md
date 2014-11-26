@@ -30,6 +30,12 @@ We follow the same naming conventions as the official API, so check the [documen
 
 Available functions are ``pokedex``, ``pokemon``, ``type``, ``move``, ``ability``, ``pokemon``, ``egg``, ``description``, ``sprite``, and ``game``. The function ``pokedex`` takes no parameters, just a callback function.
 
+You do not have to know the index of a type to get the resource. You can call:
+
+    pokeAPI.type('fire', function(err, data) {...
+
+To get the type object.
+
 ## Something else?
 
 The Pokéapi is currently at version 1, so this wrapper defaults to that. In case that ever changes, you can set the version number with:
