@@ -31,7 +31,17 @@ module.exports = {
    * @return {Object}
    */
   pokedex: function(fn) {
-
+    var apiCall = 'http://pokeapi.co/api/v' + defaults.version + '/pokedex/1';
+    request(apiCall, function(error, response, body) {
+      if (error) {
+        return fn('Error making API call to get pokedex: ' + err);
+      } else if (response.statusCode == 200) {
+        return fn(null, JSON.parse(body));
+      } else {
+        return fn('Unexpected status code for request to get pokedex: ' +
+          response.statusCode);
+      }
+    });
   },
 
   /*

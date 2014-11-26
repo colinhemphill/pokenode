@@ -243,3 +243,27 @@ describe('getGame', function() {
 
 });
 
+describe('getPokedex', function() {
+
+  var result = false;
+
+  before(function(done) {
+    pokeAPI.pokedex(function(err, pokedex) {
+      if (err) {
+        console.log('Get Pokedex err:', err);
+        result = false;
+        return done();
+      } else if (pokedex) {
+        console.log('Caught them all!');
+        result = true;
+        return done();
+      }
+    });
+  });
+
+  // test GET pokemon
+  it('Gets the 10th Game "Ruby" from the Pokeapi', function() {
+    expect(result).equals(true);
+  });
+
+});
