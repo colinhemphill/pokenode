@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     simplemocha: {
       options: {
         timeout: 3000,
-        ignoreLeaks: false
+        ignoreLeaks: true
       },
       all: {
         src: ['tests/*.js']

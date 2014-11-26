@@ -1,27 +1,35 @@
 /* Requirements */
-var expect = require('chai').expect;
+var chai = require('chai');
+var expect = chai.expect;
 var pokeAPI = require('../pokenode');
 
 describe('get pokemon test', function() {
 
-  // test 1st page
-  it('Get the Pokemon Pikachu from the Pokeapi', function() {
-    var result = false;
+  var result = false;
 
+  before(function(done) {
     pokeAPI.pokemon(25, function(err, pokemon) {
       if (err) {
-        console.log(error(err.toString()));
+        console.log('Get Pikachu err:', err);
         result = false;
-      } else if (films && count && totalPages) {
-        console.log(pokemon);
+        return done();
+      } else if (pokemon) {
+        console.log('Caught one:', pokemon.name);
         if (pokemon.name == 'Pikachu') {
           result = true;
+          return done();
         } else {
           result = false;
+          return done();
         }
       }
-      expect(result).equals(true);
     });
   });
+
+  // test GET pokemon
+  it('Get the Pokemon Pikachu from the Pokeapi', function() {
+    expect(result).equals(true);
+  });
+
 
 });

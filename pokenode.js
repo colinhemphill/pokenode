@@ -42,6 +42,25 @@ module.exports = {
    * @return {Object}
    */
   pokemon: function(pokedexNumber, fn) {
+    if (!pokedexNumber) {
+      return fn('Error getting Pokemon. You did not specify the ' +
+        'national pokedex number of the Pokemon you wish to retrieve.');
+    }
 
+    pokedexNumber = pokedexNumber.toString();
+    var apiCall = 'http://pokeapi.co/api/v' + defaults.version +
+      '/pokemon/' + pokedexNumber;
+
+    request(apiCall, function(error, response, body) {
+      if (error) {
+        return fn('Error making API call to get pokemon ' + pokedexNumber +
+          ': ' + error);
+      } else if (response.statusCode == 200) {
+        return fn(null, JSON.parse(body));
+      } else {
+        return fn('Unexpected status code for request to get pokemon: ' +
+          response.statusCode);
+      }
+    });
   }
 };
