@@ -234,6 +234,7 @@ function makeTheCall(api, apiName, apiCall, fn) {
 
 function getTypeNumberFromString(typeString) {
   var typeNumber;
+  typeString = typeString.toLowerCase().trim();
   switch (typeString) {
     case 'normal':
       typeNumber = 1;
