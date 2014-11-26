@@ -3,6 +3,23 @@ var chai = require('chai');
 var expect = chai.expect;
 var pokeAPI = require('../pokenode');
 
+describe('setApiVersion', function() {
+
+  var result = false;
+
+  before(function(done) {
+    pokeAPI.version(1);
+    result = true;
+    done();
+  });
+
+  // test GET pokemon
+  it('Set the API version', function() {
+    expect(result).equals(true);
+  });
+
+});
+
 describe('getPokemon', function() {
 
   var result = false;

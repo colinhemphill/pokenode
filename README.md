@@ -34,7 +34,7 @@ You do not have to know the index of a type to get the resource. You can call:
 
     pokeAPI.type('fire', function(err, data) {...
 
-To get the type object.
+To get the fire object.
 
 ## Something else?
 

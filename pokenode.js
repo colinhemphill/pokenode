@@ -1,4 +1,4 @@
-/* Requirements */
+/* REQUIREMENTS */
 var request = require('request');
 
 /* Defaults */
@@ -6,7 +6,7 @@ var defaults = {
   version: '1'
 };
 
-/* Exports */
+/* EXPORTS */
 module.exports = {
 
   /*
@@ -21,7 +21,7 @@ module.exports = {
       return console.error('Error setting Pokeapi version number.' +
         'Please provide a valid version number.');
     }
-    defaults.version = version.toString();
+    return defaults.version = version.toString();
   },
 
   /*
@@ -227,6 +227,8 @@ module.exports = {
     });
   }
 };
+
+/* HELPERS */
 
 function makeTheCall(api, apiName, apiCall, fn) {
   request(apiCall, function(error, response, body) {
