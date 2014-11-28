@@ -41,6 +41,7 @@ The Pokéapi is currently at version 1. In case that ever changes, you can set t
 
 ## Version History
 
+* 0.1.1 Basically because I felt like it
 * 0.1.0 Initial release
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square

@@ -279,7 +279,7 @@ describe('getPokedex', function() {
   });
 
   // test GET pokemon
-  it('Gets the 10th Game "Ruby" from the Pokeapi', function() {
+  it('Gets the Pokedex object from the Pokeapi', function() {
     expect(result).equals(true);
   });
 
