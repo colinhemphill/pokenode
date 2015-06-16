@@ -238,8 +238,8 @@ function makeTheCall(api, apiName, apiCall, fn) {
     } else if (response.statusCode == 200) {
       return fn(null, JSON.parse(body));
     } else {
-      return fn('Unexpected status code for request to get ' + apiName + ' ' +
-        resource + ': ' + response.statusCode);
+      return fn('Unexpected status code for request to get '+
+        apiCall + ': ' + response.statusCode);
     }
   });
 }
